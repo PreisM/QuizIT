@@ -1,36 +1,16 @@
 <template>
-  <div class="question-box-container">
     <b-jumbotron>
-      <template slot="lead">{{ currentQuestion.question }}</template>
-      <b-list-group class="my-4">
-        <b-list-group-item
-          :disabled="disabledQuestions"
-          v-for="(answer, index) in shuffledAnswers"
-          :key="index"
-          @click.prevent="selectAnswer(index)"
-          :class="answerType(index)"
-        >{{ answer }}</b-list-group-item>
-      </b-list-group>
-      <b-button
-        :disabled="disabledCheck || selectedIndex === null"
-        pill
-        variant="outline-dark"
-        @click="submitAnswer"
-        class="m-2 font-weight-bold"
-      >Check</b-button>
-      <b-button
-        :disabled="disabledNext"
-        pill
-        variant="outline-dark"
-        @click="next"
-        class="m-2 font-weight-bold"
-      >Next</b-button>
+      <HeaderQuestionBox :currentQuestion="currentQuestion" />
+      <Questions :disabledQuestions="disabledQuestions" :selectAnswer="selectAnswer" :shuffledAnswers="shuffledAnswers" :answerType="answerType"/>
+      <Buttons :disabledCheck="disabledCheck" :disabledNext="disabledNext" :next="next"  :submitAnswer="submitAnswer" :selectedIndex="selectedIndex" :btnText="btnText" />
     </b-jumbotron>
-  </div>
 </template>
 
 <script>
 import lodash from "lodash";
+import HeaderQuestionBox from "../atoms/HeaderQuestionBox"
+import Questions from "../atoms/Questions"
+import Buttons from "../molecules/Buttons"
 
 export default {
   props: {
@@ -38,12 +18,18 @@ export default {
     next: Function,
     increment: Function,
   },
+   components: {
+    Buttons,
+    HeaderQuestionBox,
+    Questions
+  },
   data: function () {
     return {
       selectedIndex: null,
       correctIndex: null,
       shuffledAnswers: [],
       answered: false,
+      disabledCheck: true,
     };
   },
   computed: {
@@ -128,25 +114,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.list-group-item:hover {
-  background: rgb(220, 227, 228);
-  cursor: pointer;
-}
-.selected {
-  background-color: rgb(44, 56, 228);
-  color: black;
-  font-weight: bold;
-}
-.correct {
-  background-color: rgb(41, 206, 41);
-  color: black;
-  font-weight: bold;
-}
-.incorrect {
-  background-color: rgb(241, 6, 6);
-  color: black;
-  font-weight: bold;
-}
-</style>

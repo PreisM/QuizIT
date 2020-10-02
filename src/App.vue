@@ -18,7 +18,7 @@
 
 <script>
 import Header from "./components/Header.vue";
-import Questionbox from "./components/Questionbox.vue";
+import Questionbox from "./components/organisms/Questionbox"
 export default {
   name: "app",
   components: {
