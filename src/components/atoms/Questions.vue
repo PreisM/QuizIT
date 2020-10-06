@@ -16,10 +16,22 @@ export default {
   props: {
     disabledQuestions: Boolean,
     shuffledAnswers: Array,
-    selectAnswer: Function,
     answerType: Function,
-    submitAnswer: Function,
   },
+  methods: {
+    selectAnswer(index) {
+      // select answer
+      this.selectedIndex = index;
+      this.$emit('selectIndex', index)
+    },
+    shuffle(disabledCheck, disabledQuestions) {
+    //unblock check button
+    this.disabledCheck = false;
+    //unblock questions
+    this.disabledQuestions = false;
+    this.$parent.$emit('shuffle', disabledCheck, disabledQuestions)
+    },
+  }
 };
 </script>
 

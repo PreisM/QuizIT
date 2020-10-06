@@ -1,8 +1,8 @@
 <template>
     <b-jumbotron>
       <HeaderQuestionBox :currentQuestion="currentQuestion" />
-      <Questions :disabledQuestions="disabledQuestions" :selectAnswer="selectAnswer" :shuffledAnswers="shuffledAnswers" :answerType="answerType"/>
-      <Buttons :disabledCheck="disabledCheck" :disabledNext="disabledNext" :next="next"  :submitAnswer="submitAnswer" :selectedIndex="selectedIndex" :btnText="btnText" />
+      <Questions :disabledQuestions="disabledQuestions" :shuffledAnswers="shuffledAnswers" :answerType="answerType" @shuffle="shuffle" @selectIndex="selectIndex"/>
+      <Buttons :index="index" :disabledCheck="disabledCheck" :disabledNext="disabledNext"  :selectedIndex="selectedIndex" :correctIndex="correctIndex" @check="check"/>
     </b-jumbotron>
 </template>
 
@@ -15,21 +15,21 @@ import Buttons from "../molecules/Buttons"
 export default {
   props: {
     currentQuestion: Object,
-    next: Function,
     increment: Function,
+    index: Number,
   },
    components: {
     Buttons,
     HeaderQuestionBox,
     Questions
   },
-  data: function () {
+  data() {
     return {
       selectedIndex: null,
       correctIndex: null,
-      shuffledAnswers: [],
-      answered: false,
       disabledCheck: true,
+      disabledQuestions: false,
+      disabledNext: true,
     };
   },
   computed: {
@@ -52,34 +52,26 @@ export default {
         this.answered = false;
         // mix answers
         this.shuffleAnswers();
+        this.shuffle()
       },
     },
   },
   methods: {
-    selectAnswer(index) {
-      // select answer
-      this.selectedIndex = index;
-    },
-    submitAnswer() {
-      //unblock next button
-      this.disabledNext = false;
-      //block check button
-      this.disabledCheck = true;
-      //block questions
-      this.disabledQuestions = true;
-      //check answer
-      let isCorrect = false;
-      if (this.selectedIndex === this.correctIndex) {
-        isCorrect = true;
-      }
-      this.answered = true;
+    check(disabledNext, disabledQuestions, disabledCheck, answered, isCorrect) {
+      this.disabledNext = disabledNext
+      this.disabledQuestions = disabledQuestions
+      this.disabledCheck = disabledCheck
+      this.answered = answered 
       this.increment(isCorrect);
     },
+    selectIndex(selectedIndex){
+      this.selectedIndex = selectedIndex
+    },
+    shuffle(disabledCheck, disabledQuestions) {
+    this.disabledCheck = disabledCheck
+    this.disabledQuestions = disabledQuestions
+    },
     shuffleAnswers() {
-      //unblock check button
-      this.disabledCheck = false;
-      //unblock questions
-      this.disabledQuestions = false;
       // mix correct and incorrect answers
       let answers = [
         ...this.currentQuestion.incorrect_answers,

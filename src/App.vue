@@ -7,8 +7,9 @@
           <Questionbox
             v-if="questions.length"
             :currentQuestion="questions[index]"
-            :next="next"
             :increment="increment"
+            :index="index" 
+            @next="next"
           />
         </b-col>
       </b-row>
@@ -34,9 +35,8 @@ export default {
     };
   },
   methods: {
-    next() {
-      //new question
-      this.index++;
+    next(index) {
+      this.index = index
     },
     increment(isCorrect) {
       if (isCorrect) {

@@ -13,7 +13,14 @@
 export default {
   props: {
     disabledNext: Boolean,
-    next: Function,
+    index: Number
   },
+  methods: {
+    next() {
+      let index = this.index;
+      index++
+      this.$parent.$parent.$emit('next', index)
+    },
+  }
 };
 </script>
