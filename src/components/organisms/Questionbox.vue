@@ -1,8 +1,8 @@
 <template>
     <b-jumbotron>
       <HeaderQuestionBox :currentQuestion="currentQuestion" />
-      <Questions :disabledQuestions="disabledQuestions" :shuffledAnswers="shuffledAnswers" :answerType="answerType" @shuffle="shuffle" @selectIndex="selectIndex"/>
-      <Buttons :index="index" :disabledCheck="disabledCheck" :disabledNext="disabledNext"  :selectedIndex="selectedIndex" :correctIndex="correctIndex" @check="check"/>
+      <Questions :answered="answered" :selectedIndex="selectedIndex" :correctIndex="correctIndex" :disabledQuestions="disabledQuestions" :shuffledAnswers="shuffledAnswers" @shuffle="shuffle" @selectIndex="selectIndex"/>
+      <Buttons :index="index" :disabledCheck="disabledCheck" :disabledNext="disabledNext" :selectedIndex="selectedIndex" :correctIndex="correctIndex" @check="check"/>
     </b-jumbotron>
 </template>
 
@@ -81,27 +81,6 @@ export default {
       this.correctIndex = this.shuffledAnswers.indexOf(
         this.currentQuestion.correct_answer
       );
-    },
-    //check answer
-    answerType(index) {
-      let answerType = "";
-      //answer is selected
-      if (!this.answered && this.selectedIndex === index) {
-        answerType = "selected";
-      }
-      //answer is correct
-      else if (this.answered && this.correctIndex === index) {
-        answerType = "correct";
-      } 
-      //answer is incorrect
-      else if (
-        this.answered &&
-        this.selectedIndex === index &&
-        this.correctIndex !== index
-      ) {
-        answerType = "incorrect";
-      }
-      return answerType;
     },
   },
 };

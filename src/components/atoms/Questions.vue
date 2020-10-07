@@ -14,9 +14,11 @@
 
 export default {
   props: {
+    answered: Boolean,
+    selectedIndex: Number,
+    correctIndex: Number,
     disabledQuestions: Boolean,
     shuffledAnswers: Array,
-    answerType: Function,
   },
   methods: {
     selectAnswer(index) {
@@ -30,6 +32,26 @@ export default {
     //unblock questions
     this.disabledQuestions = false;
     this.$parent.$emit('shuffle', disabledCheck, disabledQuestions)
+    },
+    answerType(index) {
+      let answerType = "";
+      //answer is selected
+      if (!this.answered && this.selectedIndex === index) {
+        answerType = "selected";
+      }
+      //answer is correct
+      else if (this.answered && this.correctIndex === index) {
+        answerType = "correct";
+      } 
+      //answer is incorrect
+      else if (
+        this.answered &&
+        this.selectedIndex === index &&
+        this.correctIndex !== index
+      ) {
+        answerType = "incorrect";
+      }
+      return answerType
     },
   }
 };
