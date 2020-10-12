@@ -16,14 +16,19 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@vue/cli-plugin-babel": "^4.5.0",
     "@vue/cli-plugin-eslint": "^4.5.0",
     "@vue/cli-plugin-unit-jest": "^4.5.7",
     "@vue/cli-service": "^4.5.0",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.5.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -50,6 +55,25 @@
         }
       }
     ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      ".*\\.(js)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": ["**/*.{js,vue}", "!**/node_modules/**"]
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
   },
   "browserslist": [
     "> 1%",
