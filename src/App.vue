@@ -9,7 +9,6 @@
             :currentQuestion="questions[index]"
             :increment="increment"
             :index="index" 
-            @next="next"
           />
         </b-col>
       </b-row>
@@ -18,6 +17,7 @@
 </template>
 
 <script>
+import { EventBus } from './main.js';
 import Header from "./components/Header.vue";
 import Questionbox from "./components/organisms/Questionbox"
 export default {
@@ -35,9 +35,6 @@ export default {
     };
   },
   methods: {
-    next(count) {
-      this.index = count
-    },
     increment(isCorrect) {
       if (isCorrect) {
         //if answer is correct, numCorrect grow
@@ -46,6 +43,11 @@ export default {
       //the sum of questions grows
       this.numTotal++;
     },
+  },
+  created (){
+    EventBus.$on('next', (count) => {
+      this.index = count;
+    })
   },
   mounted: function () {
       //take questions from API

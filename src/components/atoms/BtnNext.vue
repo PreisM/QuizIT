@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { EventBus } from '../../main.js'
 export default {
   props: {
     disabledNext: Boolean
@@ -24,7 +25,7 @@ export default {
     next() {
       let count = this.countIndex
       this.countIndex++
-      this.$parent.$parent.$emit('next', count)
+      EventBus.$emit('next', count)
     }
   }
 };
