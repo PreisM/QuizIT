@@ -2,7 +2,7 @@
     <b-jumbotron>
       <HeaderQuestionBox :currentQuestion="currentQuestion" />
       <Questions :answered="answered" :selectedIndex="selectedIndex" :correctIndex="correctIndex" :disabledQuestions="disabledQuestions" :shuffledAnswers="shuffledAnswers" @shuffle="shuffle" @selectIndex="selectIndex"/>
-      <Buttons :index="index" :disabledCheck="disabledCheck" :disabledNext="disabledNext" :selectedIndex="selectedIndex" :correctIndex="correctIndex" @check="check"/>
+      <Buttons :disabledCheck="disabledCheck" :disabledNext="disabledNext" :selectedIndex="selectedIndex" :correctIndex="correctIndex" @check="check"/>
     </b-jumbotron>
 </template>
 

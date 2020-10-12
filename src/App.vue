@@ -35,8 +35,8 @@ export default {
     };
   },
   methods: {
-    next(index) {
-      this.index = index
+    next(count) {
+      this.index = count
     },
     increment(isCorrect) {
       if (isCorrect) {

@@ -13,15 +13,19 @@
 <script>
 export default {
   props: {
-    disabledNext: Boolean,
-    index: Number
+    disabledNext: Boolean
+  },
+  data() {
+    return{
+      countIndex: 1
+    }
   },
   methods: {
     next() {
-      let index = this.index;
-      index++
-      this.$parent.$parent.$emit('next', index)
-    },
+      let count = this.countIndex
+      this.countIndex++
+      this.$parent.$parent.$emit('next', count)
+    }
   }
 };
 </script>
