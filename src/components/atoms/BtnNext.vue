@@ -1,5 +1,5 @@
 <template>
-  <b-button
+  <div><b-button
     :disabled="disabledNext"
     pill
     variant="outline-dark"
@@ -7,6 +7,7 @@
     @click="next"
     >Next
   </b-button>
+  </div>
 </template>
 
 <script>
