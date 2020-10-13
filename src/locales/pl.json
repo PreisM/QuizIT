@@ -1,0 +1,35 @@
+{
+    "header": {
+      "counter": "Punkty:",
+      "registration": "Rejestracja"
+    },
+    "btn": {
+      "check": "Sprawdź",
+      "next": "Następne"
+    },
+    "registration": {
+      "registration": "Rejestracja",
+      "name": "Imię",
+      "surname": "Nazwisko",
+      "age": "Wiek",
+      "e-mail": "E-mail",
+      "password": "Hasło",
+      "showPass": "Pokaż hasło",
+      "repeatPass": "Powtórz hasło",
+      "phone": "Numer telefonu",
+      "site": "Strona internetowa",
+      "send": "Wyślij",
+      "valid": "Pozycja wypełniona",
+      "error": {
+        "required": "Pozycja wymagana",
+        "minLength": "Minimalna ilość znaków to:",
+        "maxLength": "Maksymalna ilość znaków to:",
+        "age": "Wiek musi mieścić się w przedziale",
+        "e-mail": "Adres email jest niepoprawny lub zajęty",
+        "repeatPass": "Hasła nie są takie same",
+        "phone": "Numer może zawierać tylko liczby",
+        "site": "Adres strony jest niepoprawny (przykład: https://adres.pl)"
+    }
+  }
+}
+  

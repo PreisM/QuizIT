@@ -5,7 +5,7 @@
     variant="outline-dark"
     class="m-2 font-weight-bold w-50"
     @click="next"
-    >Next
+    >{{$t('btn.next')}}
   </b-button>
   </div>
 </template>

@@ -1,0 +1,35 @@
+{
+  "header": {
+    "counter": "Good answer:",
+    "registration": "Registration"
+  },
+  "btn": {
+    "check": "Check",
+    "next": "Next"
+  },
+  "registration": {
+    "registration": "Registration",
+    "name": "First name",       
+    "surname": "Last name",
+    "age": "Age",
+    "e-mail": "E-mail",
+    "password": "Password",
+    "showPass": "Show password",
+    "repeatPass": "Repeat password",
+    "phone": "Phone number",
+    "site": "Website adress",
+    "send": "Send",
+    "valid": "This position is correct",
+    "error": {
+      "required": "Position required",
+      "minLength": "Minimum number of letters is:",
+      "maxLength": "Maximum number of letters is:",
+      "age": "Age required between",
+      "e-mail": "Email address is invalid or busy",
+      "repeatPass": "Passwords do not match",
+      "phone": "The number can only contain numbers",
+      "site": "This position is incorrect (example: https://website.com)"
+    }
+  }
+  
+}
