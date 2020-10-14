@@ -1,7 +1,8 @@
 {
     "header": {
       "counter": "Punkty:",
-      "registration": "Rejestracja"
+      "registration": "Rejestracja",
+      "language": "PL"
     },
     "btn": {
       "check": "Sprawdź",

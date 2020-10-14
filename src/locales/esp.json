@@ -1,0 +1,36 @@
+{
+    "header": {
+      "counter": "Puntos:",
+      "registration": "Registro",
+      "language": "ESP"
+    },
+    "btn": {
+      "check": "cheque",
+      "next": "siguiente"
+    },
+    "registration": {
+      "registration": "Registro",
+      "name": "Nombre",
+      "surname": "Apellido",
+      "age": "Años",
+      "e-mail": "E-mail",
+      "password": "Contraseña",
+      "showPass": "Mostrar contraseña",
+      "repeatPass": "Repite la contraseña",
+      "phone": "Número de teléfono",
+      "site": "Página web",
+      "send": "Enviar",
+      "valid": "Artículo lleno",
+      "error": {
+        "required": "Artículo requerido",
+        "minLength": "El número mínimo de caracteres es",
+        "maxLength": "El número máximo de caracteres es:",
+        "age": "La edad debe estar dentro del rango",
+        "e-mail": "La dirección de correo electrónico es incorrecta u ocupada",
+        "repeatPass": "Las contraseñas no coinciden",
+        "phone": "El número solo puede contener números",
+        "site": "La dirección del sitio web es incorrecta (ejemplo: https://adres.pl)"
+    }
+  }
+}
+  

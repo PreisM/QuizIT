@@ -1,7 +1,8 @@
 {
   "header": {
     "counter": "Good answer:",
-    "registration": "Registration"
+    "registration": "Registration",
+    "language": "EN"
   },
   "btn": {
     "check": "Check",
